@@ -63,3 +63,59 @@ const galleryItems = [
     description: 'Lighthouse Coast Sea',
   },
 ];
+
+
+const container = document.querySelector(".gallery");
+const img = document.querySelector(".gallery__image");
+const button = document.querySelector(".lightbox__button");
+const div = document.querySelector(".lightbox");
+
+
+
+function createMarcUp(colors) {
+  return colors
+    .map((color) => {
+      return `  <li class="gallery__item">
+      // <a
+      //   class="gallery__link"
+      //   href="https://cdn.pixabay.com/photo/2010/12/13/10/13/tulips-2546_1280.jpg"
+      // >
+        <img
+          class="gallery__image"
+          src="${color.preview}"
+          data-source="${color.original}"
+          alt="Tulips"
+        />
+      // </a>
+    </li>`;
+    })
+    .join("");
+}
+const cardsMap = createMarcUp(galleryItems);
+container.insertAdjacentHTML("afterbegin", cardsMap);
+
+
+img.addEventListener("click", () => {
+
+  img.classList.toggle("full-image-container")
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
