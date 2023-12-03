@@ -66,11 +66,11 @@ const galleryItems = [
 
 
 const container = document.querySelector(".gallery");
-const img = document.querySelector(".gallery__image");
+const img = document.querySelectorAll(".gallery__image");
 const button = document.querySelector(".lightbox__button");
 const div = document.querySelector(".lightbox");
-
-
+const divContant = document.querySelector(".lightbox__content");
+const items = document.querySelector(".gallery__item");
 
 function createMarcUp(colors) {
   return colors
@@ -95,15 +95,35 @@ const cardsMap = createMarcUp(galleryItems);
 container.insertAdjacentHTML("afterbegin", cardsMap);
 
 
-img.addEventListener("click", () => {
-
-  img.classList.toggle("full-image-container")
-})
+container.addEventListener("click", openModal)
 
 
+// function onClick(e) {
+//   const actove = e.target;
+//   e.preventDefault();
+//   if (!actove.parentNode.classList.contains("gallery__item")) {
+//     return;
+//   } else {
+//  alert(123)
+//     actove.parentNode.classList.add("full-image-container");
+//   }
+// }
+
+function openModal(e) {
+  // Показати модальне вікно та затемнення фону
+  // document.getElementById('modal').style.display = 'block';
+  // document.getElementById('overlay').style.display = 'block';
+  const actove = e.target;
+  e.preventDefault();
+  div.style.display = 'block';
+  button.style.display = 'block';
+  divContant.style.display = 'block';
+divContant.textContent = actove
+
+console.log(123);
 
 
-
+}
 
 
 
