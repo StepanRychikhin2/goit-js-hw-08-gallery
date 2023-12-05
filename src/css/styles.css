@@ -64,7 +64,19 @@ body {
   cursor: zoom-in;
 }
 
-
+.is-open{
+  display: block;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 1;
+  pointer-events: initial;
+  transition: opacity var(--animation-duration) var(--timing-function);
+}
 
 .lightbox {
   display: flex;

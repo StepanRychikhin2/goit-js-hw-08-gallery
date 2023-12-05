@@ -66,27 +66,33 @@ const galleryItems = [
 
 
 const container = document.querySelector(".gallery");
-const img = document.querySelectorAll(".gallery__image");
+const img = document.querySelector(".lightbox__image");
 const button = document.querySelector(".lightbox__button");
 const div = document.querySelector(".lightbox");
 const divContant = document.querySelector(".lightbox__content");
 const items = document.querySelector(".gallery__item");
 
+
+
+
+
+
+
 function createMarcUp(colors) {
   return colors
     .map((color) => {
       return `  <li class="gallery__item">
-      // <a
-      //   class="gallery__link"
-      //   href="https://cdn.pixabay.com/photo/2010/12/13/10/13/tulips-2546_1280.jpg"
-      // >
+      <a
+        class="gallery__link"
+        href="https://cdn.pixabay.com/photo/2010/12/13/10/13/tulips-2546_1280.jpg"
+      >
         <img
           class="gallery__image"
           src="${color.preview}"
-          data-source="${color.original}"
+          data-source=""
           alt="Tulips"
         />
-      // </a>
+      </a>
     </li>`;
     })
     .join("");
@@ -94,36 +100,43 @@ function createMarcUp(colors) {
 const cardsMap = createMarcUp(galleryItems);
 container.insertAdjacentHTML("afterbegin", cardsMap);
 
+container.addEventListener("click", onPalleteClick)
+button.addEventListener("click", closeMobal)
 
-container.addEventListener("click", openModal)
-
-
-// function onClick(e) {
-//   const actove = e.target;
-//   e.preventDefault();
-//   if (!actove.parentNode.classList.contains("gallery__item")) {
-//     return;
-//   } else {
-//  alert(123)
-//     actove.parentNode.classList.add("full-image-container");
-//   }
-// }
 
 function openModal(e) {
-  // Показати модальне вікно та затемнення фону
-  // document.getElementById('modal').style.display = 'block';
-  // document.getElementById('overlay').style.display = 'block';
-  const actove = e.target;
   e.preventDefault();
-  div.style.display = 'block';
-  button.style.display = 'block';
-  divContant.style.display = 'block';
-divContant.textContent = actove
+  // const tug = e.target;
+  // div.style.display = "block";
+div.classList.add("is-open")
+div.classList.remove("lightbox")
+// divContant.src = tug.src
 
-console.log(123);
-
-
+  console.log(123);
 }
+
+function closeMobal(e) {
+  e.preventDefault();
+  div.classList.add("lightbox")
+  div.classList.remove("is-open")
+}
+
+
+function onPalleteClick(e) {
+  e.preventDefault();
+  const actove = e.target;
+  if (actove.parentNode.classList.contains("gallery__image")) {
+    return ;
+  } else {
+    console.log(2);
+    div.classList.add("is-open");
+    img.src = "./images/tulips-2546_1280 (22).jpg"
+  }
+ 
+}
+
+
+
 
 
 
