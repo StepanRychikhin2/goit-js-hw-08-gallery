@@ -132,7 +132,7 @@ function onPalleteClick(e) {
   } else {
     console.log(2);
     div.classList.add("is-open");
-    img.src = "./images/tulips-2546_1280 (22).jpg"
+    img.src = "./images/tp.jpg"
     
   }
  
