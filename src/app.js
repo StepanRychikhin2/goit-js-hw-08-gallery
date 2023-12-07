@@ -125,14 +125,20 @@ function closeMobal(e) {
 function onPalleteClick(e) {
   e.preventDefault();
   const actove = e.target;
-  if (actove.parentNode.classList.contains("gallery__image")) {
+  if (actove.closest("gallery__item")) {
+
     return ;
+
   } else {
     console.log(2);
     div.classList.add("is-open");
     img.src = "./images/tulips-2546_1280 (22).jpg"
+    
   }
  
+
+
+
 }
 
 
